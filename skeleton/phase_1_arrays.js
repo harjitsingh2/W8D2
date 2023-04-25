@@ -55,18 +55,18 @@ Array.prototype.hashTwoSum = function(array) {
 
 // console.log(Array.prototype.twoSum(arr_2))
 
-Array.prototype.myTranspose = function(array) {
+Array.prototype.myTranspose = function() {
     let transposedArray = [];
     
     // making nested skeleton array
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 0; i < this.length; i++) {
         transposedArray.push([])
     }
 
     // transpose it
-    for (let i = 0; i < array.length; i++) {
-        for (let j = 0; j < array.length; j++) {
-            transposedArray[j][i] = array[i][j]
+    for (let i = 0; i < this.length; i++) {
+        for (let j = 0; j < this.length; j++) {
+            transposedArray[j][i] = this[i][j]
 
         }
     }
@@ -78,4 +78,4 @@ Array.prototype.myTranspose = function(array) {
 let barray = [[2,3], [5,7]];
 let carray = [[2,3,4], [5,7,6], [1,0,1]];
 let darray = [[2,2,4,5], [1,7,6,4], [1,0,1,3]]; // doesn't work for non-square array
-//console.log(Array.prototype.myTranspose(carray));
+console.log(carray.myTranspose());
