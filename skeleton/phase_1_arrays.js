@@ -30,4 +30,52 @@ Array.prototype.twoSum = function(array) {
 let arr_2 = [1,2,4,-2,-2,-1,6,5,-7]
 let arr_3 = [2,3]
 
-console.log(Array.prototype.twoSum(arr_3))
+// console.log(Array.prototype.twoSum(arr_3))
+
+// Hash Version
+// This has linear run-time
+
+Array.prototype.hashTwoSum = function(array) {
+    let complements = {};
+    new_arr = [];
+
+    for (let i = 0; i < array.length; i++) {
+        let ele = array[i];
+        let complement = complements[0 - ele][0];
+        let j = complements[0-ele][1];
+
+        if (complement) {
+            new_arr.push([i, j])
+        }
+
+        complements[ele] = [ele, j];
+    }
+    return new_arr;
+}
+
+// console.log(Array.prototype.twoSum(arr_2))
+
+Array.prototype.myTranspose = function(array) {
+    let transposedArray = [];
+    
+    // making nested skeleton array
+    for (let i = 0; i < array.length; i++) {
+        transposedArray.push([])
+    }
+
+    // transpose it
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array.length; j++) {
+            transposedArray[j][i] = array[i][j]
+
+        }
+    }
+
+
+    return transposedArray;
+}
+
+let barray = [[2,3], [5,7]];
+let carray = [[2,3,4], [5,7,6], [1,0,1]];
+let darray = [[2,2,4,5], [1,7,6,4], [1,0,1,3]]; // doesn't work for non-square array
+//console.log(Array.prototype.myTranspose(carray));
